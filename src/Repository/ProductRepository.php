@@ -19,6 +19,22 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+
+    /**
+     * Retourne un tableau d'objets product
+     * @return Product[]
+    */
+    public function findNewProducts()
+    {
+        //Création d'un QueryBuilder (constructeur de requêtes)
+        return $this->createQueryBuilder('p') //'p' est l'alias de product
+            ->where('p.createdAt >= :last_month')
+            ->setParameter('last_month', new \Datetime('-1 month'))
+            ->orderBy('p.createdAt', 'DESC')
+            ->getQuery()        #obtenir la requête
+            ->getResult();      #obtenir un tableau d'entités
+    }
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */

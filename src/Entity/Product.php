@@ -66,6 +66,11 @@ class Product
         return $this;
     }
 
+    public function getPriceDecimal() :?float
+    {
+        return $this->price === null ? null :$this->price/100;
+    }
+
     public function getPrice(): ?int
     {
         return $this->price;
