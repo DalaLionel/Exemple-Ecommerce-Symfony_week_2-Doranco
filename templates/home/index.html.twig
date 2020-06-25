@@ -7,40 +7,6 @@
 {% block content %}
     <div class="section">
         <h1 class="title">Nouveautés</h1>
-        <div class="columns is-multiline">
-            {% for product in new_products %}
-                <div class="column is-one-quarter">
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-left">
-                                <figure class="image is-128x128">
-                                    <img src="https://loremflickr.com/256/256/clothes/all?lock=ID" alt="Image">
-                                </figure>
-                            </div>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>
-                                        <a href="#" class="has-text-primary">
-                                            <div class="tags has-addons">
-                                                <span class="tag">{{ product.priceDecimal|number_format(2,'.',' ') }} €</span>
-                                                <span class="tag is-primary">
-                            	<span class="icon">
-                                    <i class="fas fa-euro-sign"></i>
-                                </span>
-                            </span>
-                                            </div>
-                                            <strong>{{ product.getName }}</strong>
-                                        </a>
-                                        <small>{{ product.createdAt|date('d/m/Y')}}</small>
-                                        <br>
-                                        {{ product.description|slice(0,50) }}
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+        {% include '/includes/productlist.html.twig' with {products:new_products}%}
     </div>
 {% endblock %}

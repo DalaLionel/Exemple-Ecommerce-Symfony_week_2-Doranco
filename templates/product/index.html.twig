@@ -1,0 +1,39 @@
+{% extends '_template.html.twig' %}
+
+{% block content %}
+<h1>{{ h1_page_en_cours }}</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products  %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.priceDecimal|number_format(2,'.',' ') }}€</td>
+                <td>{{ product.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{#
+{% extends "_template.html.twig" %}
+{% block title %}
+Produits
+{% endblock %}
+
+{% block content %}
+<div class="section">
+    <h1 class="title">Liste des produits:{{ product_list|length }}</h1>
+
+    inclusion de fichier et passage de variables
+    {% include '/includes/productlist.html.twig' with {products:new_products%}
+</div>
+
+#}
