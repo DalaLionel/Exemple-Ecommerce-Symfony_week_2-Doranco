@@ -1,0 +1,15 @@
+{% for type, messages in app.flashes  %}
+
+    {#
+    Les messages sont dans un tableau multidimensionnel
+    [
+    'Success'['msg1', 'msg2']
+    'Danger'['msg1',['msg2]
+    ]
+    #}
+    {% for message in messages %}
+        <div class="notification is-{{ type }}">
+            {{ message }}
+        </div>
+    {% endfor%}
+{% endfor %}
