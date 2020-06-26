@@ -1,0 +1,40 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: lazy
+            provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                target: app_logout_message
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        # sert à déclarer des règles d'accès globales sur toute l'application
+        # - { path: ^/admin, roles: ROLE_ADMIN } par exemple ici, on dit qu'il faut le rôle admin pour accéder à toutes les uri de type /admin
+        # - { path: ^/profile, roles: ROLE_USER }
+    role_hierarchy:
