@@ -1,0 +1,17 @@
+{% extends ('_admin_template.html.twig') %}
+
+{% block title %}
+    Modification
+{% endblock %}
+
+{% block content %}
+    <div class="section">
+        <h1 class="title"> Modifier le produit {{ productamodif.name }}</h1>
+        {{ form_start(Formulaire_edit) }}
+        {{ form_row(Formulaire_edit.name) }}
+        {{ form_row(Formulaire_edit.price) }}
+        {{ form_row(Formulaire_edit.description) }}
+        <button type="submit" class="button is-fullwidth">Modifier</button>
+        {{ form_end(Formulaire_edit) }}
+    </div>
+{% endblock %}

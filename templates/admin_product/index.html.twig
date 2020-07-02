@@ -1,0 +1,37 @@
+{% extends '_admin_template.html.twig' %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+{% block content %}
+    <div class="section">
+    <h1 class="title">Liste produits admin</h1>
+        <a href="{{ path('admin_product_add') }}" class="button is-success">Ajouter Produit</a>
+        <br>
+        <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>ID</th>
+                <th>Prix</th>
+                <th>Date création</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for element in produits %}
+            <tr>
+                {{ include('includes/flashes.html.twig') }}
+                <td><a href="{{ path('product_show',{id:element.id}) }}">{{ element.name }}</a></td>
+                <td>{{ element.id }}</td>
+                <td>{{ element.priceDecimal|number_format(2,'.',' ') }}€</td>
+                <td>{{ element.createdAt|date('d/m/Y') }}</td>
+                <td><a href="{{ path('admin_product_edit',{id:element.id}) }}">Modifier</a><a href="{{ path('admin_product_delete',{id:element.id}) }}">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

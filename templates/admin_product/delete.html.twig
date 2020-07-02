@@ -1,0 +1,16 @@
+{% extends ('_admin_template.html.twig') %}
+
+{% block title %}
+    Suppression fichiers
+{% endblock %}
+
+{% block content %}
+    <div class="section">
+      {{ include('includes/flashes.html.twig') }}
+    <h1 class="title">Suppression du produit {{ product.name }}</h1>
+    {{ form_start(deletion_form) }}
+    {{ form_row(deletion_form.confirmation,{label:'Je confirme la suppression du produit"'~ product.name ~ '"' })}}
+    <button class="button is-danger">Supprimer</button>
+    {{ form_end(deletion_form) }}
+    </div>
+{% endblock %}
