@@ -5,11 +5,7 @@
 {%  endblock %}
 {% block content %}
     <div class="section">
-        {{ form_start(Formulaire_new) }}
-        {{ form_row(Formulaire_new.name,{label:'Nom produit'}) }}
-        {{ form_row(Formulaire_new.description) }}
-        {{ form_row(Formulaire_new.price, {label:'Prix'}) }}
-        <button type="submit" class="is-dark button is-fullwidth">Créer</button>
-        {{ form_end(Formulaire_new) }}
+        <h1>Ajout des produits</h1>
+        {{ include('admin_product/form.html.twig') }}
     </div>
 {% endblock %}

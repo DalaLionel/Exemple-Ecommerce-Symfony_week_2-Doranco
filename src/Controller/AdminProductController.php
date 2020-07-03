@@ -53,7 +53,7 @@ class AdminProductController extends AbstractController
             $this->addFlash('success','Le produit a été enregistré');
             return $this->redirectToRoute('admin_product_list');
         }
-        return $this->render('admin_product/admin_add.html.twig', ['Formulaire_new'=>$form->createView()]);
+        return $this->render('admin_product/admin_add.html.twig', ['Formulaire'=>$form->createView()]);
     }
 
     /**
@@ -71,7 +71,7 @@ class AdminProductController extends AbstractController
         }
         return $this->render('admin_product/edit.html.twig', [
             'productamodif'=>$product,
-            'Formulaire_edit'=>$form->createView()]);
+            'Formulaire'=>$form->createView()]);
     }
 
     /**

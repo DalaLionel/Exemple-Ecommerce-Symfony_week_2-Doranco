@@ -1,0 +1,7 @@
+{{ form_start(Formulaire) }}
+        {{ form_row(Formulaire.name,{label:'Nom produit'}) }}
+        {{ form_row(Formulaire.category,{label:'Catégorie du produit' })}}
+        {{ form_row(Formulaire.description) }}
+        {{ form_row(Formulaire.price, {label:'Prix'}) }}
+<button type="submit" class="is-dark button is-fullwidth">Créer</button>
+{{ form_end(Formulaire) }}
