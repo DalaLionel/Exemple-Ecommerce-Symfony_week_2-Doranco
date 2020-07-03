@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 /**
- * Autoriser l'accès aux admins sur toutes les routes de ce contrôleur
+ * Autoriser l'accès aux admins seulement sur toutes les routes de ce contrôleur
  * @IsGranted("ROLE_ADMIN")
  *
  * Spécifier un préfice d'URI et de nom de route
