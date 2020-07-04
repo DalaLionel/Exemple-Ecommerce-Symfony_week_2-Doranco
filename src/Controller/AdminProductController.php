@@ -30,7 +30,7 @@ class AdminProductController extends AbstractController
     public function list(ProductRepository $repository)
     {
         $produits=$repository->findAll();
-        return $this->render('admin_product/index.html.twig', [
+        return $this->render('admin_product/list.html.twig', [
             'produits' => $produits,
         ]);
     }
