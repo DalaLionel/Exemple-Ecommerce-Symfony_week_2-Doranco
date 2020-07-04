@@ -1,0 +1,30 @@
+{% extends '_admin_template.html.twig' %}
+
+{% block title %}Admin-Categories{% endblock %}
+
+{% block content %}
+    <div class="section">
+        <h1 class="title">Liste des catégories de produits</h1>
+        <a class="button is-success" href="{{ path('_admin_category_add') }}">Ajout Catégorie</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom Catégorie</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for categorie in categories %}
+                <tr>
+                    <td> {{ categorie.id }} </td>
+                    <td> {{ categorie.name }} </td>
+                    <td><a class="button is-success mr-1" href="{{ path('_admin_category_edit',{id:categorie.id}) }}">Modifier</a><a class="button is-danger" href="{{ path('_admin_category_delete',{id:categorie.id}) }}">Supprimer</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}

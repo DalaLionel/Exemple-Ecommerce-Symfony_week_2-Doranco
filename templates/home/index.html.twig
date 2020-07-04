@@ -6,7 +6,13 @@
 
 {% block content %}
     <div class="section">
-        <h1 class="title">Nouveautés</h1>
-        {% include '/includes/productlist.html.twig' with {products:new_products}%}
+        <h1 class="title">Catégories</h1>
+        {% for categorie in categories %}
+            <a class="button is-dark mr-1" href="{{ path('CategoryProducts',{id:categorie.id}) }}">{{ categorie.name }}</a>
+        {% endfor %}
+        <br>
+        <br>
+        <h2 class="title">Nouveautés du mois</h2>
+        {% include ('/includes/productlist.html.twig') with {products:new_products}%}
     </div>
 {% endblock %}

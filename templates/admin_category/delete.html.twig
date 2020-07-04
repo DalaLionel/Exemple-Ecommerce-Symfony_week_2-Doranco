@@ -1,0 +1,14 @@
+{% extends('_admin_template.html.twig') %}
+{% block title %}
+    Suppresion Catégories
+{% endblock %}
+
+{% block content %}
+    <div class="section">
+        <h1 class="title">Suppression Catégorie {{ category.name }}</h1>
+        {{ form_start(Formulaire_delete) }}
+        {{ form_row(Formulaire_delete.confirmation,{label:'Confirmez la suppression en cliquant ici'}) }}
+        <button class="button is-danger">Supprimer</button>
+        {{ form_end(Formulaire_delete) }}
+    </div>
+{% endblock %}

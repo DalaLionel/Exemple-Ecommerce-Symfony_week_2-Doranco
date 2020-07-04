@@ -17,7 +17,7 @@
                 <p class="content">
                     {{ product.description }}
                 </p>
-
+                <p> Produit de la catégorie : {{ product.category.name }} <br></p>
                 <div class="tags has-addons are-large">
                 <span class="tag">
                     {{ product.priceDecimal|number_format(2,'.',' ') }}€

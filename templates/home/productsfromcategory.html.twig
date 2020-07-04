@@ -1,0 +1,29 @@
+{% extends('_template.html.twig') %}
+{% block title %}
+    Page catégorie
+{% endblock %}
+{% block content %}
+    <div class="section">
+        <h1 class="title">Produits de la catégorie {{ category.name }}</h1>
+        <table class="table">
+            <thead>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Desc.</th>
+            </thead>
+            <tbody>
+            {% for produits in produitscategorie %}
+                <tr>
+                    <td>{{ produits.id }}</td>
+                    <td>{{ produits.name}}</td>
+                    <td>{{ produits.priceDecimal}}</td>
+                    <td>{{ produits.description}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock %}
